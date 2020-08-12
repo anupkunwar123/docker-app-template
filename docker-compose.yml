@@ -1,0 +1,35 @@
+version: '3.8'
+services:
+  database:
+    image: mongo
+    restart: always
+    container_name: database
+    volumes:
+      - type: volume
+        source: db
+        target: /data/db
+        volume:
+          nocopy: true
+    ports:
+      - 27017:27017
+  web:
+    image: myapp/app
+    ports:
+      - 3030:3030
+    container_name: web
+    depends_on:
+      - database
+    restart: always
+    environment:
+      - NODE_ENV=prod
+  web-server:
+    build: ./nginx
+    container_name: nginx
+    restart: always
+    depends_on:
+      - web
+    ports:
+        - 80:80 
+volumes:
+  db:
+    

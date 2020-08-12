@@ -1,0 +1,34 @@
+{
+  "name": "miraki-fashion-studio",
+  "version": "1.0.0",
+  "description": "",
+  "main": "index.js",
+  "scripts": {
+    "build-server": "npm install && rm -rf ./dist && npx tsc && rm -rf node_modules && npm install --only=prod",
+    "build-client": "cd client && npm run build-client",
+    "start": "node dist/server/index.js",
+    "build-dev-server": "npm install && npx tsc --watch",
+    "build-dev-client": "cd client && npm run build-dev-client",
+    "build-dev": "npx concurrently \"npm run build-dev-server\"  \"npm run build-dev-client\" \"npm run dev-start\"",
+    "dev-start": "nodemon dist/server/index.js",
+    "run-images": "npm run build-server && npm run build-client && docker-compose build && docker-compose up"
+  },
+  "author": "Anup Kunwar",
+  "license": "ISC",
+  "dependencies": {
+    "express": "^4.17.1",
+    "mongoose": "^5.9.28",
+    "react": "^16.13.1",
+    "react-dom": "^16.13.1"
+  },
+  "devDependencies": {
+    "@types/express": "^4.17.7",
+    "@types/mongoose": "^5.7.36",
+    "@types/node": "^14.0.27",
+    "@types/react": "^16.9.44",
+    "@types/react-dom": "^16.9.8",
+    "concurrently": "^5.2.0",
+    "nodemon": "^2.0.4",
+    "typescript": "^3.9.7"
+  }
+}
