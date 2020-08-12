@@ -1,3 +1,2 @@
 # docker-app-template
-Run nginx, node and mongo in docker
-see npm scripts for various build options
+Run nginx, node and mongo in docker\nsee npm scripts for various build options
