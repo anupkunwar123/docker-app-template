@@ -11,7 +11,7 @@
     "build-dev-client": "cd client && npm run build-dev-client",
     "build-dev": "npx concurrently \"npm run build-dev-server\"  \"npm run build-dev-client\" \"npm run dev-start\"",
     "dev-start": "nodemon dist/server/index.js",
-    "run-images": "npm run build-server && npm run build-client && docker-compose build && docker-compose up"
+    "docker-images": "npm run build-server && npm run build-client && docker-compose build && docker-compose up"
   },
   "author": "Anup Kunwar",
   "license": "ISC",
